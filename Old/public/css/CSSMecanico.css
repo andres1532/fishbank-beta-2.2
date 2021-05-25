@@ -1,0 +1,150 @@
+body{
+    background-color: #3B3B3B;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: #ffff;
+    background: #006EB8;
+}
+
+li{
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px;
+    font-family: 'Segoe UI';
+}
+
+h1{
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.NombreyCargo{
+    margin-top: 15px;
+}
+
+li img{
+    top: 10;
+    padding-top: 15px;
+    padding-right: 10px;
+}
+
+.Indicador{
+    padding: 20px;
+    margin-top: 10px;
+    margin-left: 120px;
+    float: center;
+}
+
+#ImgSalir{
+    width: 10%;
+    margin-top: 10px;
+    padding: 3px;
+    float: right;
+}
+
+.Operaciones{
+    margin-top: 0px;
+}
+
+
+/*.BtnComprarBarco{
+    margin-top: 130px;
+    background-color: #006EB8;
+    padding: 40px 30px 40px 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.Botones img{
+    width: 10%;
+    /*margin-top: 20px;*/
+    /*margin-left: 50px;
+    cursor: pointer;
+}
+
+.Opciones{
+    margin: -21px 0px 0px 250px;
+}
+
+.Opciones img{
+    display:none;
+    display: inline;
+    position: relative;
+    background-color: black;
+    width: 95px;
+    padding: 36px;
+    margin: -190px 0px 0px 0px;
+}
+
+.Opciones img:hover{
+    display: inline;
+    background-color: #7c7c7c;
+    /*padding: 55px 10px 55px 10px;
+    margin: -190px 0px 0px 0px;*/
+/*}
+
+.ContenedorBotones:hover .BtnComprarBarco{
+    background-color: green;
+}*/
+
+.ContenedorBotones{
+    position: relative;
+    /*display: inline-block;*/
+}
+
+.BtnComprarBarco{
+    margin-top: 130px;
+    background-color:#006EB8;
+    border: none;
+    padding: 16px 32px;
+    cursor: pointer;
+}
+
+.ContenedorBotones:hover .BtnComprarBarco{
+    background-color: midnightblue;;
+}
+
+.Opciones{
+    margin-left: 180px;
+    margin-top: -138px;
+    position: absolute;
+    background-color: black;
+    min-width: 160px;
+    /*display: none;*/
+
+}
+
+.Opciones img{
+    padding: 16px 20px;
+   /* display: flexbox;*/
+}
+
+.Opciones a{
+    margin-top: 0px;
+    /*display: none;*/
+}
+
+.Opciones img:hover{
+    background-color: #22264b;
+}
+
+.ContenedorBotones:hover .Opciones{
+    display: none;
+}
+
+.table-border{
+    border: solid;
+} 
+
+
+

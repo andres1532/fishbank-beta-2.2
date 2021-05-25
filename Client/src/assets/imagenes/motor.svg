@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140.877" height="125.869" viewBox="0 0 140.877 125.869">
+  <g id="Grupo_278" data-name="Grupo 278" transform="translate(-2688.773 7112.406)">
+    <path id="Trazado_102" data-name="Trazado 102" d="M2658.012-6922.6s26.8-19.717,40.913-9.984,0-27.037,0-27.037-38.051-29.2-53.015,0S2658.012-6922.6,2658.012-6922.6Z" transform="matrix(0.94, 0.342, -0.342, 0.94, -2160.999, -1456.121)" fill="#787878"/>
+    <path id="Trazado_103" data-name="Trazado 103" d="M47.183,0S20.379,19.717,6.271,9.983s0,27.038,0,27.038,38.051,29.2,53.015,0S47.183,0,47.183,0Z" transform="matrix(0.839, -0.545, 0.545, 0.839, 2748.915, -7077.66)" fill="#787878"/>
+    <path id="Trazado_104" data-name="Trazado 104" d="M47.183,0S20.379,19.718,6.271,9.984s0,27.038,0,27.038,38.051,29.2,53.015,0S47.183,0,47.183,0Z" transform="translate(2783.777 -7050.332) rotate(90)" fill="#787878"/>
+    <g id="Elipse_46" data-name="Elipse 46" transform="translate(2743 -7074)" fill="#fff" stroke="#707070" stroke-width="1">
+      <ellipse cx="18" cy="18.5" rx="18" ry="18.5" stroke="none"/>
+      <ellipse cx="18" cy="18.5" rx="17.5" ry="18" fill="none"/>
+    </g>
+  </g>
+</svg>

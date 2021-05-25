@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketch</title>
+
+    <link rel="stylesheet" type="text/css" href="css/capitan.css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js" integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4=" crossorigin="anonymous"></script>
+    <script src="socket.io/socket.io.js"></script>
+
+    <script src="/libraries/p5.min.js"></script>
+    <!--------------------------------------por ahora no hay sonido------------------------------------------>
+    
+
+
+</head>
+
+<body>
+    <!-------------------------aqui se ponen la pantalla del capitan---------------------->
+    <div id="squareContainer"><!--Contenedor general mensaje gasolina-->
+
+        <div id="FishingContainer">
+          <script src="libraries/p5.min.js"></script>
+          <script src="sketch.js"></script>
+
+          <div id="square"><!--Contenedor del mensaje gasolina-->
+            <p>Te has quedado sin gasolina!<br>
+              debes solicitar una grua</p>
+              <div class="o-Button" id="ButtonCrane"><!--Contenedor de grua-->
+                <button value="true" id="PopCraneValue">Aceptar</button>
+              </div>
+          </div>
+
+        </div> 
+
+        <div class="chat-container">
+            <header class="chat-header">
+
+                <a href="index.html" class="btn-salir">Leave Room</a>
+            </header>
+            <main class="chat-main">
+
+                <div class="chat-sidebar">
+                    <h3><i class="fas fa-comments"></i> Room Name:</h3>
+                    <h2 id="room-name"></h2>
+                    <h3><i class="fas fa-users"></i> Users</h3>
+                    <ul id="users"></ul>
+                </div>
+
+                <div class="chat-messages"></div>
+
+            </main>
+            <div class="chat-F-container">
+                <form id="chatF">
+                    <input id="msg" type="text" placeholder="Enter Message" autocomplete="off" />
+                    <button class="btn-enviar"><i class="fas
+                                fa-paper-plane"></i> Send</button>
+                </form>
+
+            </div>
+
+        </div>
+
+
+        
+      </div>
+
+      <!-----------------------------------aqui inicia el chat-------------------------------->
+  
+    <script src="/js/sketch.js"></script>
+
+
+
+</body>
+
+
+</html>

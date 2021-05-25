@@ -1,0 +1,40 @@
+body{
+display: block;
+background-color: #1B138F;
+
+}
+
+.uao{
+    height: auto;
+    width: 133px;
+    margin: 10px;
+}
+
+h1{
+    text-align: center;
+    color: #fff
+}
+
+.wrapflex-equipos{
+    display: flex;
+    flex-flow:wrap;
+    
+    margin: 10px;
+    padding: 5px;
+
+    justify-content: center;
+}
+
+.wrapflex-equipos2{
+    display: flex;
+    flex-flow:wrap;
+    
+    margin: 10px;    
+    padding: 5px;
+
+    justify-content: center;
+}
+
+
+
+
