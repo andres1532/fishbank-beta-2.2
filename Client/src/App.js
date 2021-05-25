@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Login from "./component/Login/Login";
-import Manager from "./component/Manager/Manager";
+import Login from "./component/Pages/Login/Login";
+import Manager from "./component/Pages/Manager/Manager";
 function App() {
   return (
     <BrowserRouter>

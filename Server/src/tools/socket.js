@@ -1,5 +1,11 @@
+const chalk = require("chalk");
 const http = require("./httpx");
-const io = require("socket.io")(http);
+const io = require("socket.io")(http, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
+});
 const moment = require("moment");
 
 function formatMessage(username, text) {
@@ -40,10 +46,12 @@ function getRoomUsers(room) {
 const botName = "admin";
 // Run when client connects
 io.on("connection", (socket) => {
-  console.log("entro algo");
-  socket.on("joinRoom", ({ username, room }) => {
-    socket.name = username;
+  console.log(chalk.green(`entro el usuario ${socket.id}`));
+  socket.on("joinRoom", ({ username, room, rol }) => {
+    console.log(chalk.blue(username) + "----" + chalk.blue(room));
     socket.room = room;
+    socket.name = username;
+    socket.roluser = rol;
     const user = userJoin(socket.id, username, room);
 
     socket.join(user.room);
@@ -73,7 +81,7 @@ io.on("connection", (socket) => {
   socket.on("chatMessage", (msg) => {
     const user = getCurrentUser(socket.id);
 
-    io.to(user.room).emit("message", formatMessage(user.username, msg));
+    io.in(socket.room).emit("message", formatMessage(socket.name, msg));
   });
 
   //listen for solicitud
