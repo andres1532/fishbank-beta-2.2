@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import io from "socket.io-client";
 //css
 import "./manager.css";
@@ -8,12 +8,14 @@ import User from "../../../assets/imagenes/user.svg";
 import LogOut from "../../../assets/imagenes/Cerrar sesión.svg";
 import Clock from "../../../assets/imagenes/clock.svg";
 import Money from "../../../assets/imagenes/money.svg";
+
 export default function App() {
   const dd = localStorage.getItem("userdata");
   const ff = JSON.parse(dd);
   let state = {
     socket: null,
   };
+  const [money, setMoney] = useState(300);
   useEffect(() => {
     const logs = () => {
       let totalSeconds = 0;

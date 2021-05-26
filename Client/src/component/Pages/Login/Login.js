@@ -65,7 +65,13 @@ export default function App(props) {
               id="login-mecanico"
               type="button"
               className="btn"
-              onClick={() => {}}
+              onClick={() => {if (team !== null && username !== null) {
+                props.history.push("/Mechanic");
+                localStorage.setItem(
+                  "userdata",
+                  JSON.stringify({ team, username })
+                );
+              }}}
             >
               Mecanico
             </button>

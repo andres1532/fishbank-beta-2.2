@@ -56,6 +56,8 @@ io.on("connection", (socket) => {
 
     socket.join(user.room);
 
+
+
     // Welcome current user
     socket.emit(
       "message",
@@ -76,6 +78,10 @@ io.on("connection", (socket) => {
       users: getRoomUsers(user.room),
     });
   });
+
+  socket.on("pay", (pay) => {
+    io.on(socket.room).emit("pay", pay);
+  })  
 
   // Listen for chatMessage
   socket.on("chatMessage", (msg) => {
@@ -133,3 +139,23 @@ io.on("connection", (socket) => {
 });
 
 module.exports = http;
+
+/*Para juego en colaborativo/competitivo
+
+function getuserroom(room) {
+  const nsp = io.of("/");
+  const rooms = nsp.adapter.rooms.get(room);
+  let list = [];
+  for (const clientId of rooms) {
+    const clientSocket = io.sockets.sockets.get(clientId);
+    //console.log(clientSocket);
+    list.push({
+      id: clientSocket.id,
+      nombre: clientSocket.name,
+      rol: clientSocket.roluser,
+    });
+  }
+
+  return list;
+}*/
+
