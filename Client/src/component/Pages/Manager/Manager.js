@@ -39,6 +39,7 @@ export default function App() {
         }
       };
       setInterval(setTime, 1000);
+      
       const outputMessage = (message) => {
         const div = document.createElement("div");
         div.classList.add("message");
