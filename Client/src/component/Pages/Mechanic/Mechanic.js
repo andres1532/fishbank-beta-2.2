@@ -25,6 +25,9 @@ export default function App() {
 
   };
   useEffect(() => {
+    const logs = () => {
+      
+
     const chatMessages = document.querySelector(".chat-messages");
       //const minutesLabel = document.getElementById("minutes");
       //const secondsLabel = document.getElementById("seconds");
@@ -107,7 +110,8 @@ export default function App() {
       // Scroll down
       chatMessages.scrollTop = chatMessages.scrollHeight;
     });
-
+    };
+    logs();
   // Get room and users
 });
 
@@ -268,7 +272,7 @@ const chatF = (e) => {
             }}
           >
             <input
-              id="cantidad2"
+              id="cantidad"
               type="number"
               placeholder="Envia un valor"
               required
