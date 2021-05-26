@@ -13,7 +13,10 @@ import Ship from "../../../assets/imagenes/barco.svg";
 export default function App() {
   const Localstorage = localStorage.getItem("userdata");
   const object = JSON.parse(Localstorage);
-  const [ship, setShip] = useState([{level:1,price:100, gas:100, capacity:100}, {level:1,price:100, gas:100, capacity:100}, {level:1, price:100, capacity:100}]);
+  const [ship1, setShip1] = useState([{level:1,price:100, gas:100, capacity:100}, {level:1,price:100, gas:100, capacity:100}, {level:1, price:100, capacity:100}]);
+  const [ship2, setShip2] = useState([]);
+  const [ship3, setShip3] = useState([]);
+  const [ship4, setShip4] = useState([]);
   const [money, setMoney] = useState(0);
   
   let state = {
@@ -22,23 +25,126 @@ export default function App() {
 
   };
   useEffect(() => {
+    const chatMessages = document.querySelector(".chat-messages");
+      //const minutesLabel = document.getElementById("minutes");
+      //const secondsLabel = document.getElementById("seconds");
+      const roomName = document.getElementById("room-name");
+      const userList = document.getElementById("users");
 
-    const BuyShip = (money, price) => {
-      if(money >= price){
-        setShip.push({level:1, price:100, capacity:100});
+    const BuyShip = (money, price, level) => {
+      if(price == 100 && money >= price && level == 1){
+        setShip1.push({level:1, price:100, capacity:100});
       }
       else{
-        alert("No tienes dinero suficiente para comprar barcos");
+        alert("No tienes dinero suficiente para comprar este barco");
       }
+
+      if(price == 200 && money >= price && level == 2){
+        setShip2.push({level:2, price:200, capacity:200});
+      }
+      else{
+        alert("No tienes dinero suficiente para comprar este barco");
+      }
+
+      if(price == 300 && money >= price && level == 3){
+        setShip3.push({level:3, price:300, capacity:300});
+      }
+      else{
+        alert("No tienes dinero suficiente para comprar este barco");
+      }
+
+      if(price == 400 && money >= price && level == 4){
+        setShip4.push({level:4, price:400, capacity:400});
+      }
+      else{
+        alert("No tienes dinero suficiente para comprar este barco");
+      }
+
     };
 
-    const LevelUp = (money, level) => {
-      /*if(){
+    const outputMessage = (message) => {
+      const div = document.createElement("div");
+      div.classList.add("message");
+      const p = document.createElement("p");
+      p.classList.add("meta");
+      p.innerText = message.username;
+      p.innerHTML += `<span>${message.time}</span>`;
+      div.appendChild(p);
+      const para = document.createElement("p");
+      para.classList.add("text");
+      para.innerText = message.text;
+      div.appendChild(para);
+      chatMessages.appendChild(div);
+    };
+    const outputUsers = (users) => {
+      userList.innerHTML = "";
+      users.forEach((user) => {
+        const li = document.createElement("li");
+        li.innerText = user.username;
+        userList.appendChild(li);
+      });
+    };
+    const outputRoomName = (room) => {
+      roomName.innerText = room;
+    };
+    state.socket = io("http://localhost:3030/", {
+      reconnectionDelayMax: 10000,
+    });
 
-      }*/
-    }
+    state.socket.emit("joinRoom", {
+      username: object.username,
+      room: object.team,
+      rol: "admin",
+    });
+    state.socket.on("roomUsers", ({ room, users }) => {
+      outputRoomName(room);
+      outputUsers(users);
+    });
+    state.socket.on("message", (message) => {
+      console.log(message);
+      outputMessage(message);
 
-  });
+      // Scroll down
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    });
+
+  // Get room and users
+});
+
+const solicitarForm = (e) => {
+  e.preventDefault();
+
+  //get message text
+  const cantidad = e.target.elements.cantidad.value;
+
+  //emit message to server
+  state.socket.emit("solicitud", cantidad);
+
+  //clear input
+  e.target.elements.cantidad.value = "";
+  e.target.elements.cantidad.focus();
+
+};
+
+const chatF = (e) => {
+  e.preventDefault();
+
+  // Get message text
+  let msg = e.target.elements.msg.value;
+
+  msg = msg.trim();
+
+  if (!msg) {
+    return false;
+  }
+
+  // Emit message to server
+  state.socket.emit("chatMessage", msg);
+
+  // Clear input
+  e.target.elements.msg.value = "";
+  e.target.elements.msg.focus();
+};
 
   return (
     <div>
@@ -115,6 +221,65 @@ export default function App() {
           </tbody>
         </table>
 
+      </div>
+
+      <div className="chat-container" style={{ float: "right" }}>
+        <header className="chat-header">
+          <a href="index.html" className="btn-salir">
+            Leave Room
+          </a>
+        </header>
+        <main className="chat-main">
+          <div className="chat-sidebar">
+            <h3>
+              <i className="fas fa-comments"></i> Room Name:
+            </h3>
+            <h2 id="room-name"></h2>
+            <h3>
+              <i className="fas fa-users"></i> Users
+            </h3>
+            <ul id="users"></ul>
+          </div>
+
+          <div className="chat-messages"></div>
+        </main>
+        <div className="chat-F-container">
+          <form
+            id="chatF"
+            onSubmit={(e) => {
+              chatF(e);
+            }}
+          >
+            <input
+              id="msg"
+              type="text"
+              placeholder="Enter Message"
+              autocomplete="off"
+            />
+            <button className="btn-enviar">
+              <i className="fas fa-paper-plane"></i> Send
+            </button>
+          </form>
+
+          <form
+            id="solicitar-form"
+            onSubmit={(event) => {
+              solicitarForm(event);
+            }}
+          >
+            <input
+              id="cantidad2"
+              type="number"
+              placeholder="Envia un valor"
+              required
+              autocomplete="off"
+            />
+
+            <button className="btn">
+              <i className="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
       </div>
 
     </div>
