@@ -45,6 +45,9 @@ export default function Captain() {
     }
   }
   //------------------------------Ship
+  
+
+
   const processingRef = useRef();
 
   const [ships1, setShips1] = useState([]);
@@ -53,6 +56,19 @@ export default function Captain() {
   useEffect(() => {
     console.log("ff");
     new p5((p) => {
+
+
+        p.setGradient = (x, y, w, h, ColorIzquierdo, ColorDerecho) => {
+            
+            for (let i = x; i <= x + w; i++){
+                let inter = p.map(i, x, x + w, 0, 1);
+                let c = p.lerpColor(ColorIzquierdo, ColorDerecho, inter);
+                p.stroke(c);
+                p.line(i, y, i, y + h);
+            }
+          
+        };
+
       p.setup = () => {
         //p.background("#ff0000");
 
@@ -63,13 +79,14 @@ export default function Captain() {
         }
 
         //definicion de colores por RGB
-       /* ColorDerecho = color(0,0,50);
-        ColorIzquierdo = color(0, 100, 255);*/
+        //const ColorDerecho = p.color(0,0,50);
+        //const ColorIzquierdo = p.color(0, 100, 255);
 
       };
 
       p.draw = () => {
-        p.background(100,250,100);
+        //p.background(100,250,100);
+        p.setGradient(0, 0, window.innerWidth, 675, p.color(0, 100, 255), p.color(0,0,50), 0, 2);//(posicion en x, posicion en y, ancho, alto)
         if (ships1.length > 0 && ships1.length > 0) {
           for (let i = 0; i < 1; i++) {
             ships1[i].body();
@@ -79,6 +96,7 @@ export default function Captain() {
           }
         }
       };
+
     }, processingRef.current);
   }, []);
 
