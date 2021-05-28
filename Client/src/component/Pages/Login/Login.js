@@ -2,6 +2,10 @@ import { useState } from "react";
 import logo from "../../../assets/imagenes/UAO.svg";
 import logopn from "../../../assets/imagenes/logo.png";
 
+/*css*/
+import "./login.css"
+
+
 export default function App(props) {
   const [username, setUsername] = useState(null);
   const [team, setTeam] = useState(null);
