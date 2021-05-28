@@ -194,7 +194,7 @@ export default function App() {
               autocomplete="off"
             />
             <button className="btn-enviar">
-              <i className="fas fa-paper-plane"></i> Send
+              <i className="fas fa-paper-plane"></i> Envia un mensaje
             </button>
           </form>
 
