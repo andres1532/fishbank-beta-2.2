@@ -1,5 +1,5 @@
-import {useState, useEffect, useRef} from 'react';
-import Sketch from 'react-p5';
+import { useState, useEffect, useRef } from "react";
+import Sketch from "react-p5";
 //import p5Types from "p5";
 
 //import React, { useRef, useEffect } from "react";
@@ -67,62 +67,8 @@ import p5 from "p5";
 
 }*/
 
-class Ship {
-    /*const body = () => {
-        //ShipImg = loadImage('https://th.bing.com/th/id/R8aa1b685a490d6abb6edc38d109d29ba?rik=Y8Yg04rH1PYp8A&pid=ImgRaw');
-         p5.rect(x, y, 50, 50);
-       }
-
-       /*const keyPressed = (keyCode) => {
-         const k = keyCode;
-         if (keyCode === "LEFT_ARROW") {
-         ships1.push({ships1});
-
-         }
-
-         console.log(k);
-
-         if (keyCode === "UP_ARROW") {
-         console.log(ships2);
-         }
-
-       }*/
-
-       constructor(x, y, img, level, direction, progressbarGas, progressbarFish, select){
-        this.x = x;
-        this.y = y;
-        this.img = img;
-        this.level = level;
-        this.direction = direction;
-        this.progressbarGas = progressbarGas;
-        this.progressbarFish = progressbarFish;
-        this.select = select;
-  }
-  
-        body(){
-            //ShipImg = loadImage('Assets/images/Sprite1.png');
-            p5.rect(this.x, this.y, 50, 50);
-        }
-        
-        keyPressed() {
-            
-            if (keyCode === LEFT_ARROW) {
-            ships1.push({ships1});
-            console.log(ships1);
-            }
-            
-            if (keyCode === UP_ARROW) {
-            ships2.push(new ships2());
-            console.log(ships2);
-            }
-            
-        
-        }
-
-}
-
-export default function Captain ()  {
-    /*const myRef = useRef(null);
+export default function Captain() {
+  /*const myRef = useRef(null);
  const [ships1, setShipts1] = useState([]);
   const [ships2, setShipts2] = useState([]);
 
@@ -192,41 +138,80 @@ useEffect(() => {
       </div>
     )*/
 
-    const processingRef = useRef();
+  class Ship {
+    constructor(
+      x,
+      y,
+      img,
+      level,
+      direction,
+      progressbarGas,
+      progressbarFish,
+      select
+    ) {
+      this.x = x;
+      this.y = y;
+      this.img = img;
+      this.level = level;
+      this.direction = direction;
+      this.progressbarGas = progressbarGas;
+      this.progressbarFish = progressbarFish;
+      this.select = select;
+    }
 
-    const [ships1, setShips1] = useState([]);
-    const [ships2, setShips2] = useState([]);
-  
-  
+    body() {
+      //ShipImg = loadImage('Assets/images/Sprite1.png');
+      p5.rect(this.x, this.y, 50, 50);
+    }
 
+    keyPressed(keyCode) {
+      console.log(keyCode);
+      if (keyCode === "LEFT_ARROW") {
+        ships1.push({ ships1 });
+        console.log(ships1);
+      }
 
-    const Sketch = p => {
-    p.setup = () => {
-       p.background("#ff0000");
-
-       //p.createCanvas(500, 500).parent(processingRef);
-       for (let i=0; i < 1; i++){
- 
-         setShips1(new Ship(50,50,0,1));
-         setShips2(new Ship(50,150,0,2));
-                     }
-    };
-
-    p.draw = () => {
-        p.background("#ff0000");
-                    for (let i=0; i < 1; i++){
-                        ships1[i].body();
-                        ships2[i].body();
-
-                        //ships1[i].keyPressed();
-                    }
-    };
-     };
-   useEffect(() => {
-    const newp5 = new p5(Sketch, processingRef.current);
-    }, [])
-
-  return <div ref={processingRef} />;
+      if (keyCode === "UP_ARROW") {
+        ships2.push(new ships2());
+        console.log(ships2);
+      }
+    }
   }
+  //------------------------------Ship
+  const processingRef = useRef();
 
-  
+  const [ships1, setShips1] = useState([]);
+  const [ships2, setShips2] = useState([]);
+
+  useEffect(() => {
+    const newp5 = new p5((p) => {
+      p.setup = () => {
+        p.background("#ff0000");
+
+        //p.createCanvas(500, 500).parent(processingRef);
+        for (let i = 0; i < 1; i++) {
+          setShips1(new Ship(50, 50, 0, 1));
+          setShips2(new Ship(50, 150, 0, 2));
+        }
+      };
+
+      p.draw = () => {
+        p.background("#ff0000");
+        if (ships1.length > 0 && ships1.length > 0) {
+          for (let i = 0; i < 1; i++) {
+            ships1[i].body();
+            ships2[i].body();
+
+            //ships1[i].keyPressed();
+          }
+        }
+      };
+    }, processingRef.current);
+  }, []);
+
+  return (
+    <div>
+      <div ref={processingRef} />
+    </div>
+  );
+}
