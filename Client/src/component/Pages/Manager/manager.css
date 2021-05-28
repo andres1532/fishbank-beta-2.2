@@ -95,67 +95,17 @@ header {
   margin: 40px 0px 10px 0px;
 }
 
-
-/*chat*/
-#chat-container{
-  max-width: 425px;
-  margin: 30px auto;
-  border: 1px solid #ddd;
-  box-shadow: 1px 3px 5px rgba(0, 0 ,0, .5);
-  background: #36393F;
-  justify-content: left;
+/*timer*/
+#seconds {
+  font-size: 2em;
   
 }
 
-#chat-window{
-  height: 100px;
-  padding: 14px 0;
-  margin: 0 20px;
-  border-bottom: 1p solid #e9e9e9;
-  color: #555;
+#minutes {
+  font-size: 2em;
 }
-
-#output p {
-  
-  color: #aaa;
-  padding: 20px 0;
-  margin: 0 20px;
-  
-}
-
-#actions p {
-  padding: 14px 0;
-  margin: 0 20px;
-  border-bottom: 1px solid #e9e9e9;
-  color: #555;
-  
-}
-
-input{
-  padding: 10px 20 px;
-  box-sizing: border-box;
-  border: 0;
-  background: #575757;
-  display: block;
-  width: 100%; 
-}
-
-button{
-  background: #575ed8;
-  color: #fff;
-  font-size: 18px;
-  border:0;
-  padding: 12px 0;
-  width: 100%;
-  border-radius: 0 0 2px 2px;
-}
-
-#username{
-  color: #fff;
+#colon {
+  font-size: 2em;
 }
 
 
-
-#message{
-  color: #fff;
-}
