@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import io from "socket.io-client";
 //css
 import "./manager.css";
+import "./style.css";
+import "./tabla.css";
+import "./chat.css";
 //imgs
 import UAO2 from "../../../assets/imagenes/UAO2.svg";
 import User from "../../../assets/imagenes/user.svg";
@@ -191,7 +194,7 @@ export default function App() {
               autocomplete="off"
             />
             <button className="btn-enviar">
-              <i className="fas fa-paper-plane"></i> Send
+              <i className="fas fa-paper-plane"></i> Envia un mensaje
             </button>
           </form>
 
@@ -210,7 +213,7 @@ export default function App() {
             />
 
             <button className="btn">
-              <i className="fas fa-paper-plane"></i>
+              <i className="fas fa-paper-plane"></i> Envia un valor
             </button>
           </form>
         </div>

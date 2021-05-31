@@ -79,6 +79,7 @@ io.on("connection", (socket) => {
     });
   });
 
+  //con este evento se tienen que manejar los pagos
   socket.on("pay", (pay) => {
     io.on(socket.room).emit("pay", pay);
   })  

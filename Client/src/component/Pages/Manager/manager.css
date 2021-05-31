@@ -1,3 +1,5 @@
+/*manager*/
+
 body {
   background: rgba(0, 0, 0, 0.75);
   display: fixed;
@@ -92,3 +94,18 @@ header {
 .Titulo {
   margin: 40px 0px 10px 0px;
 }
+
+/*timer*/
+#seconds {
+  font-size: 2em;
+  
+}
+
+#minutes {
+  font-size: 2em;
+}
+#colon {
+  font-size: 2em;
+}
+
+

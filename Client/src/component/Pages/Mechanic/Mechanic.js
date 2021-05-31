@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import io from "socket.io-client";
 //css
 import "./mechanic.css";
+import "./style.css";
+import "./chat.css";
+
 //imgs
 import UAO2 from "../../../assets/imagenes/UAO2.svg";
 import User from "../../../assets/imagenes/user.svg";
@@ -261,7 +264,7 @@ const chatF = (e) => {
               autocomplete="off"
             />
             <button className="btn-enviar">
-              <i className="fas fa-paper-plane"></i> Send
+              <i className="fas fa-paper-plane"></i> Enviar mensaje
             </button>
           </form>
 
@@ -280,7 +283,7 @@ const chatF = (e) => {
             />
 
             <button className="btn">
-              <i className="fas fa-paper-plane"></i>
+              <i className="fas fa-paper-plane"></i> Solicitar Dinero
             </button>
           </form>
         </div>

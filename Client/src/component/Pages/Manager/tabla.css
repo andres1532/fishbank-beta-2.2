@@ -1,0 +1,62 @@
+.informacion{
+    color: #fff;
+}
+
+.Titulo{
+    
+    text-align: center;
+}
+
+.flexwrap-cabecera{
+    display: flex;
+    flex-direction: wrap;
+}
+
+
+.turnos{
+    margin: auto 250px auto 10px;
+}
+
+.turno-numero{
+    justify-content: center;
+}
+
+.año{
+    justify-content: center;
+    margin: 0px 30px 0px 30px ;
+}
+
+.flexwrap-encabezados{
+    display:flex;
+    flex-direction: column;
+    margin:auto;
+}
+
+.equipo{
+    display:block;
+    margin: 5px;
+    padding: 3px;
+}
+
+
+
+table, th, td{
+    border: 1px solid white;
+    border-collapse: collapse;
+    border-top:none;
+    border-bottom:none;
+    border-left:none;
+}
+
+.tabla, th,td{
+    padding:15px;
+}
+
+.tabla, th{
+    text-align: center;
+}   
+
+.tabla, td{
+    border-top: none;
+    border-bottom:none;
+}
