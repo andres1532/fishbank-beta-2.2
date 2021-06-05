@@ -8,7 +8,7 @@ import "./chat.css";
 //imgs
 import UAO2 from "../../../assets/imagenes/UAO2.svg";
 import User from "../../../assets/imagenes/user.svg";
-import LogOut from "../../../assets/imagenes/Cerrar sesión.svg";
+//import LogOut from "../../../assets/imagenes/Cerrar sesión.svg";
 import Clock from "../../../assets/imagenes/clock.svg";
 import Money from "../../../assets/imagenes/money.svg";
 import Ship from "../../../assets/imagenes/barco.svg";
@@ -160,32 +160,57 @@ const chatF = (e) => {
         <link rel="stylesheet" href="/public/css/CSSMecanico.css" type="text/css" />
       </div>
 
-      <ul>
-        <li>
-          <h1>UAO</h1>
+    <div className="o-Navbar">
+      <ul className="o-NavbarElements">
+        <li className="o-Title"><h1>UAO</h1></li>
+        <li className="Indicador">
+          <div><label>$ <span id="Dinero">{money}</span></label></div>
+          <p>Dinero Actual</p>
         </li>
-        <li className="IMG"><a><img src={User} alt="imgUser"/></a></li>
-        <li className="NombreyCargo">{object.username}<br/>Mecanico</li>
         <li className="Indicador">
           <div className="tiempo">
             <label id="minutes">00</label>
             <label id="colon">:</label>
             <label id="seconds">00</label>
-          </div>Tiempo
+            <p>Tiempo</p>
+          </div>
         </li>
-        <li className="Indicador">
-          <div><label>$ <span id="Dinero">{money}</span></label></div>Dinero Actual
-        </li>
-        <li className="IMG"><a><img id="ImgSalir" src={LogOut} alt="imgLogOut"/></a></li>
-      </ul>
-
-      <div className="ContenedorBotones">
-        <button className="BtnComprarBarco"><img id="BtnComprarBarco"
-            src={Ship} alt="imgShip"/></button><br/>
-        <div className="Opciones">
-          <a href="#"><img src={Ship} alt="imgShip"/></a>
-          <a href="#"><img src={Ship} alt="imgShip"/></a>
+        <li className="o-NameAndPosition">{object.username}<br/>Mecanico</li>
+        <div className="o-UserMenu">
+          <li className="o-UserImage"><a><img src={User} alt="imgUser"/></a>
+            <div className="o-UserContent">
+              <a>Cerrar sesion</a>
+            </div>
+          </li>
         </div>
+      </ul>
+    </div>
+
+      <div className="ContenedorBotones o-ContenedorBotonesHover">
+        <div className="o-TopContainer">
+          <div className="Opciones">
+            <a href="#"><img src={Ship} alt="imgShip"/></a>
+            <button className="BtnComprarBarco" value="Nivel1">Comprar Barco Nivel1</button>
+          </div>
+
+          <div className="Opciones">
+            <a href="#"><img src={Ship} alt="imgShip"/></a>
+            <button className="BtnComprarBarco" value="Nivel2">Comprar Barco Nivel2</button>
+          </div>
+        </div>
+
+        <div className="o-BottomContainer">
+          <div className="Opciones">
+            <a href="#"><img src={Ship} alt="imgShip"/></a>
+            <button className="BtnComprarBarco" value="Nivel3">Comprar Barco Nivel3</button>
+          </div>
+
+          <div className="Opciones">
+            <a href="#"><img src={Ship} alt="imgShip"/></a>
+            <button className="BtnComprarBarco" value="Nivel4">Comprar Barco Nivel4</button>
+          </div>
+        </div>
+
       </div>
 
       <h3>Valor Mejora</h3>

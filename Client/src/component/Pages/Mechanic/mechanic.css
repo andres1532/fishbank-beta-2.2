@@ -1,56 +1,65 @@
 body{
-    background-color: #3B3B3B;
+    background-color: #eeeb42;
 }
 
-ul{
-    list-style: none;
+/*inicio navbar*/
+.o-Navbar{
+	width: 100%;
+    height: 10%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    /*overflow: hidden;*/
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
     color: #ffff;
-    background: #006EB8;
+    background: #006eb8;
+    
 }
 
-li{
-    float: left;
-    display: block;
+.o-NavbarElements{
     text-align: center;
-    padding: 14px;
-    font-family: 'Segoe UI';
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    list-style: none;
 }
 
-h1{
-    font-size: 2em;
-    font-weight: bold;
+.o-NavbarElements .o-Title h1{
+    font-size: 3rem;
 }
 
-.NombreyCargo{
-    margin-top: 15px;
+.o-UserMenu{
+    position: relative;
+    display: inline-block;
 }
 
-li img{
-    top: 10;
-    padding-top: 15px;
-    padding-right: 10px;
+.o-UserContent{
+    display: none;
+    position: absolute;
+    background-color: white;
 }
 
-.Indicador{
-    padding: 20px;
-    margin-top: 10px;
-    margin-left: 120px;
-    float: center;
+.o-UserContent a{
+    color: black;
+    display: block;
+    padding: 16px;
+    min-width: 130px;
 }
 
-#ImgSalir{
-    width: 10%;
-    margin-top: 10px;
-    padding: 3px;
-    float: right;
+.o-UserContent a:hover{
+    background-color: #ffffff;
 }
+
+.o-UserMenu:hover .o-UserImage a{
+    cursor: pointer;
+}
+
+.o-UserMenu:hover .o-UserContent{
+    display: block;
+}
+
+/*fin navbar*/
 
 .Operaciones{
     margin-top: 0px;
@@ -97,31 +106,67 @@ li img{
     background-color: green;
 }*/
 
+
+/*Inicio menu de barcos*/
 .ContenedorBotones{
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+}
+
+.o-ContenedorBotonesHover{
     position: relative;
-    /*display: inline-block;*/
+    display: inline-block;
 }
 
-.BtnComprarBarco{
-    margin-top: 130px;
-    background-color:#006EB8;
-    border: none;
-    padding: 16px 32px;
-    cursor: pointer;
+.o-OptionsHover{
+    display: none;
+    position: absolute;
+    background-color: white;
 }
 
-.ContenedorBotones:hover .BtnComprarBarco{
-    background-color: midnightblue;;
+
+.o-TopContainer{
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
 
 .Opciones{
-    margin-left: 180px;
-    margin-top: -138px;
-    position: absolute;
-    background-color: black;
-    min-width: 160px;
-    /*display: none;*/
+    align-items: center;
+    text-align: center;
+    margin: 1%;
+}
 
+.Opciones img{
+    width: 70%;
+    height: 60%;
+}
+
+.o-BottomContainer{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.BtnComprarBarco{
+    background-color:#008db8;
+    cursor: pointer;
+    width: 35%;
+    height: 15%;
+}
+
+/*fin menu de barcos*/
+
+/*.ContenedorBotones:hover .BtnComprarBarco{
+    background-color: midnightblue;;
+}*/
+
+.Opciones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.274);
 }
 
 .Opciones img{
@@ -134,13 +179,13 @@ li img{
     /*display: none;*/
 }
 
-.Opciones img:hover{
+/*.Opciones img:hover{
     background-color: #22264b;
 }
 
 .ContenedorBotones:hover .Opciones{
     display: none;
-}
+}*/
 
 .table-border{
     border: solid;
