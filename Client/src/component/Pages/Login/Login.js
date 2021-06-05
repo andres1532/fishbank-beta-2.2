@@ -65,6 +65,7 @@ export default function App(props) {
             >
               Gerente
             </button>
+
             <button
               id="login-mecanico"
               type="button"
@@ -79,14 +80,22 @@ export default function App(props) {
             >
               Mecanico
             </button>
+
             <button
               id="login-capitan"
               type="button"
               className="btn"
-              onClick={() => {}}
+              onClick={() => {if (team !== null && username !== null){
+                props.history.push("/Captain");
+                localStorage.setItem(
+                  "userdata",
+                  JSON.stringify({ team, username})
+                );
+              }}}
             >
               Capitan
             </button>
+
           </form>
         </div>
       </div>
