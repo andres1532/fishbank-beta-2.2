@@ -29,13 +29,29 @@ export default function App() {
   };
   useEffect(() => {
     const logs = () => {
-      
+      let totalSeconds = 0;
 
     const chatMessages = document.querySelector(".chat-messages");
-      //const minutesLabel = document.getElementById("minutes");
-      //const secondsLabel = document.getElementById("seconds");
-      const roomName = document.getElementById("room-name");
-      const userList = document.getElementById("users");
+    const minutesLabel = document.getElementById("minutes");
+    const secondsLabel = document.getElementById("seconds");
+    const roomName = document.getElementById("room-name");
+    const userList = document.getElementById("users");
+    const setTime = () => {
+      ++totalSeconds;
+      secondsLabel.innerHTML = pad(totalSeconds % 60);
+      minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+    };
+    const pad = (val) => {
+      var valString = val + "";
+      if (valString.length < 2) {
+        return "0" + valString;
+      } else {
+        return valString;
+      }
+    };
+    setInterval(setTime, 1000);
+
+
 
     const BuyShip = (money, price, level) => {
       if(price == 100 && money >= price && level == 1){
