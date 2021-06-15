@@ -213,47 +213,7 @@ const chatF = (e) => {
 
       </div>
 
-      <h3>Valor Mejora</h3>
-      <div className="Operaciones">
-        <input id="ContenedorPantallaValor" name="PantallaPrecio" type="text"/>
-        <button id="Pagar" name="BtnOperacion" onClick={()=>{}}>Pagar</button>
-      </div>
 
-      <div id="ContenedorMejoras">
-        <h4>Precio Mejora</h4>
-        <label id="BtnMejora" name="Mejora" value="100">$100</label>
-        <label id="BtnMejora" name="Mejora" value="200">$200</label>
-        <label id="BtnMejora" name="Mejora" value="300">$300</label>
-        <label id="BtnMejora" name="Mejora" value="400">$400</label>
-      </div>
-
-      <div id="Barcos">
-        <h5>Cantidad Barcos</h5>
-        <label id="CantidadBarcos"></label>
-        <br/>
-        <button id="CompraBarco" onClick={()=>{}} value="100">CompraBarco</button>
-        <br/>
-        <br/>
-        <table className="table-border">
-          <tbody>
-            <tr>
-              <th>Barco Generico</th>
-              <th>Barco Nivel 1</th>
-              <th>Barco Nivel 2</th>
-              <th>Barco Nivel 3</th>
-              <th>Barco Nivel 4</th>
-            </tr>
-            <tr>
-              <th id="BarcoGenerico">0</th>
-              <th id="Nivel1">0</th>
-              <th id="Nivel2">0</th>
-              <th id="Nivel3">0</th>
-              <th id="Nivel4">0</th>
-            </tr>
-          </tbody>
-        </table>
-
-      </div>
 
       <div className="chat-container" style={{ float: "right" }}>
         <header className="chat-header">
