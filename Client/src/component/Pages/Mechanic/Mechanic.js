@@ -29,13 +29,29 @@ export default function App() {
   };
   useEffect(() => {
     const logs = () => {
-      
+      let totalSeconds = 0;
 
     const chatMessages = document.querySelector(".chat-messages");
-      //const minutesLabel = document.getElementById("minutes");
-      //const secondsLabel = document.getElementById("seconds");
-      const roomName = document.getElementById("room-name");
-      const userList = document.getElementById("users");
+    const minutesLabel = document.getElementById("minutes");
+    const secondsLabel = document.getElementById("seconds");
+    const roomName = document.getElementById("room-name");
+    const userList = document.getElementById("users");
+    const setTime = () => {
+      ++totalSeconds;
+      secondsLabel.innerHTML = pad(totalSeconds % 60);
+      minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+    };
+    const pad = (val) => {
+      var valString = val + "";
+      if (valString.length < 2) {
+        return "0" + valString;
+      } else {
+        return valString;
+      }
+    };
+    setInterval(setTime, 1000);
+
+
 
     const BuyShip = (money, price, level) => {
       if(price == 100 && money >= price && level == 1){
@@ -213,47 +229,7 @@ const chatF = (e) => {
 
       </div>
 
-      <h3>Valor Mejora</h3>
-      <div className="Operaciones">
-        <input id="ContenedorPantallaValor" name="PantallaPrecio" type="text"/>
-        <button id="Pagar" name="BtnOperacion" onClick={()=>{}}>Pagar</button>
-      </div>
 
-      <div id="ContenedorMejoras">
-        <h4>Precio Mejora</h4>
-        <label id="BtnMejora" name="Mejora" value="100">$100</label>
-        <label id="BtnMejora" name="Mejora" value="200">$200</label>
-        <label id="BtnMejora" name="Mejora" value="300">$300</label>
-        <label id="BtnMejora" name="Mejora" value="400">$400</label>
-      </div>
-
-      <div id="Barcos">
-        <h5>Cantidad Barcos</h5>
-        <label id="CantidadBarcos"></label>
-        <br/>
-        <button id="CompraBarco" onClick={()=>{}} value="100">CompraBarco</button>
-        <br/>
-        <br/>
-        <table className="table-border">
-          <tbody>
-            <tr>
-              <th>Barco Generico</th>
-              <th>Barco Nivel 1</th>
-              <th>Barco Nivel 2</th>
-              <th>Barco Nivel 3</th>
-              <th>Barco Nivel 4</th>
-            </tr>
-            <tr>
-              <th id="BarcoGenerico">0</th>
-              <th id="Nivel1">0</th>
-              <th id="Nivel2">0</th>
-              <th id="Nivel3">0</th>
-              <th id="Nivel4">0</th>
-            </tr>
-          </tbody>
-        </table>
-
-      </div>
 
       <div className="chat-container" style={{ float: "right" }}>
         <header className="chat-header">
