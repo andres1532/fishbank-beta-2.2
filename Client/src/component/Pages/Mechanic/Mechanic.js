@@ -162,12 +162,12 @@ const chatF = (e) => {
 
     <div className="o-Navbar">
       <ul className="o-NavbarElements">
-        <li className="o-Title"><h1>UAO</h1></li>
-        <li className="Indicador">
+        <li className="o-Title o-Option"><h1>UAO</h1></li>
+        <li className="Indicador o-Option">
           <div><label>$ <span id="Dinero">{money}</span></label></div>
           <p>Dinero Actual</p>
         </li>
-        <li className="Indicador">
+        <li className="Indicador o-Option">
           <div className="tiempo">
             <label id="minutes">00</label>
             <label id="colon">:</label>
@@ -175,9 +175,9 @@ const chatF = (e) => {
             <p>Tiempo</p>
           </div>
         </li>
-        <li className="o-NameAndPosition">{object.username}<br/>Mecanico</li>
+        <li className="o-NameAndPosition o-Option">{object.username}<br/>Mecanico</li>
         <div className="o-UserMenu">
-          <li className="o-UserImage"><a><img src={User} alt="imgUser"/></a>
+          <li className="o-UserImage o-Option"><a><img src={User} alt="imgUser"/></a>
             <div className="o-UserContent">
               <a>Cerrar sesion</a>
             </div>
@@ -189,24 +189,24 @@ const chatF = (e) => {
       <div className="ContenedorBotones o-ContenedorBotonesHover">
         <div className="o-TopContainer">
           <div className="Opciones">
-            <a href="#"><img src={Ship} alt="imgShip"/></a>
+            <img src={Ship} alt="imgShip"/>
             <button className="BtnComprarBarco" value="Nivel1">Comprar Barco Nivel1</button>
           </div>
 
           <div className="Opciones">
-            <a href="#"><img src={Ship} alt="imgShip"/></a>
+            <img src={Ship} alt="imgShip"/>
             <button className="BtnComprarBarco" value="Nivel2">Comprar Barco Nivel2</button>
           </div>
         </div>
 
         <div className="o-BottomContainer">
           <div className="Opciones">
-            <a href="#"><img src={Ship} alt="imgShip"/></a>
+            <img src={Ship} alt="imgShip"/>
             <button className="BtnComprarBarco" value="Nivel3">Comprar Barco Nivel3</button>
           </div>
 
           <div className="Opciones">
-            <a href="#"><img src={Ship} alt="imgShip"/></a>
+            <img src={Ship} alt="imgShip"/>
             <button className="BtnComprarBarco" value="Nivel4">Comprar Barco Nivel4</button>
           </div>
         </div>
