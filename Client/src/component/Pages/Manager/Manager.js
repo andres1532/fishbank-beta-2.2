@@ -12,12 +12,17 @@ import LogOut from "../../../assets/imagenes/Cerrar sesión.svg";
 import Clock from "../../../assets/imagenes/clock.svg";
 import Money from "../../../assets/imagenes/money.svg";
 
+//cambiar dd por Localstorage
+//cambiar ff por object
+
 export default function App() {
-  const dd = localStorage.getItem("userdata");
-  const ff = JSON.parse(dd);
+  const Localstorage = localStorage.getItem("userdata");
+  const object = JSON.parse(Localstorage);
+  
   let state = {
     socket: null,
   };
+
   const [money, setMoney] = useState(300);
   useEffect(() => {
     const logs = () => {
@@ -73,8 +78,8 @@ export default function App() {
       });
 
       state.socket.emit("joinRoom", {
-        username: ff.username,
-        room: ff.team,
+        username: object.username,
+        room: object.team,
         rol: "admin",
       });
       state.socket.on("roomUsers", ({ room, users }) => {
@@ -128,38 +133,41 @@ export default function App() {
   };
   return (
     <div>
-      <header className="encabezado">
-        <img className="uao-2" src={UAO2} alt="" />
-        <img className="usericon" src={User} alt="" />
-
-        <a className="sesionIcon" href="/">
-          {" "}
-          <img src={LogOut} alt="" />
-        </a>
-      </header>
-
-      <div className="icono">
-        <div className="sub-icono">
-          <div className="wrapflex-tempo">
-            <div className="timeIcon">
-              <img className="time" src={Clock} alt="" />
-            </div>
-            <div className="tiempo">
-              <label id="minutes">00</label>
-              <label id="colon">:</label>
-              <label id="seconds">00</label>
-            </div>
-          </div>
-          <div className="wrapflex-dinero">
-            <div className="moneyIcon">
-              <img className="money" src={Money} alt="" />
-            </div>
-            <div>
-              <label id="dinero">$500</label>
-            </div>
-          </div>
-        </div>
+      <div>
+        <title>Gerente</title>
+        
       </div>
+
+    <div className="o-Navbar">
+      <ul className="o-NavbarElements">
+        <li className="o-title"><h1>UAO</h1></li>
+        <li className="Indicador">
+          <div><label>$ <span id="Dinero">{money}</span></label></div>
+          <p>Dinero Actual</p>
+        </li>
+        <li className="Indicador">
+          <div className="tiempo">
+            <label id="minutes">00</label>
+            <label id="colon">:</label>
+            <label id="seconds">00</label>
+            <p>Tiempo</p>
+          </div>
+        </li>
+        <li className="o-NameAndPosition">{object.username}<br/>Gerente</li>
+        <div className="o-UserMenu">
+          <li className="o-UserImage"><a><img src={User} alt="imgUser"/></a>
+            <div className="o-UserContent">
+              <a>Cerrar sesion</a>
+            </div>
+          </li>
+        </div>
+      </ul>
+      
+    </div>
+
+      
+
+      
       <div className="chat-container" style={{ float: "right" }}>
         <header className="chat-header">
           <a href="index.html" className="btn-salir">

@@ -16,6 +16,7 @@ import Ship from "../../../assets/imagenes/barco.svg";
 export default function App() {
   const Localstorage = localStorage.getItem("userdata");
   const object = JSON.parse(Localstorage);
+  
   const [ship1, setShip1] = useState([{level:1,price:100, gas:100, capacity:100}, {level:1,price:100, gas:100, capacity:100}, {level:1, price:100, capacity:100}]);
   const [ship2, setShip2] = useState([]);
   const [ship3, setShip3] = useState([]);
