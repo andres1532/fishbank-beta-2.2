@@ -1,5 +1,5 @@
 body{
-    background-color: #252525;
+    background-color: #272727;
 }
 
 /*inicio navbar*/
@@ -8,7 +8,7 @@ body{
     height: 10%;
     margin: 0;
     padding: 0;
-    /*overflow: hidden;*/
+    overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
@@ -115,7 +115,6 @@ body{
 }
 
 .o-ContenedorBotonesHover{
-    position: relative;
     display: inline-block;
 }
 
@@ -151,6 +150,13 @@ body{
 
 .BtnComprarBarco{
     background-color:#008db8;
+    cursor: pointer;
+    width: 35%;
+    height: 15%;
+}
+
+ .o-BottomContainer .Opciones:hover{
+    background-color:#7ed7f1;
     cursor: pointer;
     width: 35%;
     height: 15%;
