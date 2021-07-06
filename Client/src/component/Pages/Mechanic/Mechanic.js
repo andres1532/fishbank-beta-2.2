@@ -117,7 +117,7 @@ export default function App() {
     state.socket.emit("joinRoom", {
       username: object.username,
       room: object.team,
-      rol: "admin",
+      rol: "Mecanico",
     });
     state.socket.on("roomUsers", ({ room, users }) => {
       outputRoomName(room);
@@ -130,6 +130,12 @@ export default function App() {
       // Scroll down
       chatMessages.scrollTop = chatMessages.scrollHeight;
     });
+
+    state.socket.on("GirarDinero", (money) => {
+      console.log(money);
+      setMoney(prevmoney => prevmoney + money);
+    });
+
     };
     logs();
   // Get room and users

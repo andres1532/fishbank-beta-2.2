@@ -2,23 +2,68 @@
 
 body {
   background: rgba(0, 0, 0, 0.75);
-  display: fixed;
-  max-width: 1339px;
-  max-height: auto;
+ 
 }
 
-header {
-  display: fixed;
-  max-width: 1080px auto;
+
+
+.o-Navbar{
+  width: 100%;
+    height: 10%;
+    margin: 0;
+    padding: 0;
+    /*overflow: hidden;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: #ffff;
+    background: #006eb8;
+    
 }
 
-.encabezado {
-  background: #006eb8;
+.o-NavbarElements{
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
   display: flex;
-  flex: wrap;
-  margin: -10px -10px 0px -10px;
-  height: 84px;
+  list-style: none;
 }
+
+.o-NavbarElements .o-Title h1{
+  font-size: 3rem;
+}
+
+
+.o-UserMenu{
+  position: relative;
+  display: inline-block;
+}
+
+.o-UserContent{
+  display: none;
+  position: absolute;
+  background-color: white;
+}
+
+.o-UserContent a{
+  color: black;
+  display: block;
+  padding: 16px;
+  min-width: 130px;
+}
+
+.o-UserContent a:hover{
+  background-color: #ffffff;
+}
+
+.o-UserMenu:hover .o-UserImage a{
+  cursor: pointer;
+}
+
+.o-UserMenu:hover .o-UserContent{
+  display: block;
+}
+
 
 .uao-2 {
   max-width: 100px;
