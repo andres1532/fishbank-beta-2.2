@@ -60,11 +60,11 @@ io.on("connection", (socket) => {
 
 
     // Welcome current user
-    socket.emit(
+    /*socket.emit(
       "welcomeMessage",
       formatMessage(botName, `bienvenido al chat! ${user.username}`),
       console.log("welcome message")
-    );
+    );*/
 
     //entró un manager
     if(socket.roluser === "Gerente"){

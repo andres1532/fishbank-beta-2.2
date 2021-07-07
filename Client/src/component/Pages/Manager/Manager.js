@@ -17,7 +17,7 @@ import Money from "../../../assets/imagenes/money.svg";
 //cambiar dd por Localstorage
 //cambiar ff por object
 
-export default function App() {
+export default function App(props) {
   const Localstorage = localStorage.getItem("userdata");
   const object = JSON.parse(Localstorage);
 
@@ -195,9 +195,9 @@ export default function App() {
 
       <div className="chat-container" style={{ float: "right" }}>
         <header className="chat-header">
-          <a href="index.html" className="btn-salir">
+        <button onClick={() => props.history.push('/Login')}>
             Leave Room
-          </a>
+          </button>
         </header>
         <main className="chat-main">
           <div className="chat-sidebar">
@@ -224,7 +224,7 @@ export default function App() {
               id="msg"
               type="text"
               placeholder="Enter Message"
-              autocomplete="off"
+              autoComplete="off"
             />
             <button className="btn-enviar">
               <i className="fas fa-paper-plane"></i> Envia un mensaje

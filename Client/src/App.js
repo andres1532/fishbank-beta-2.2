@@ -11,7 +11,7 @@ function App() {
         <Route exact path="/Mechanic" component={Mechanic} />
         <Route exact path="/Captain" component={Captain} />
         <Route exact path="/Manager" component={Manager} />
-        <Route exact path="/" component={Login} />
+        <Route exact path="/Login" component={Login} />
       </Switch>
     </BrowserRouter>
   );
