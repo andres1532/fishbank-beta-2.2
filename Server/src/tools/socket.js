@@ -59,10 +59,44 @@ io.on("connection", (socket) => {
 
 
     // Welcome current user
-    socket.emit(
+    /*socket.emit(
       "message",
       formatMessage(botName, `bienvenido al chat! ${user.username}`)
-    );
+    );*/
+
+    //entro un Gerente
+    if (socket.roluser === "Gerente") {
+      console.log("Entro un Gerente");
+      io.to(socket.room).emit(
+        "manager", {
+        room: socket.room,
+        user: socket.id,
+        name: socket.name,
+        rol: socket.roluser
+      }
+      )
+
+      //Autogiro
+      io.to(socket.id).emit(
+        "autoGiro", 500
+      )
+
+      console.log("autoGiro");
+
+    };
+
+    //entro un Mecanico
+    if (socket.roluser === "Mecanico") {
+      console.log("Entro un Mecanico");
+      io.to(socket.room).emit(
+        "manager", {
+        room: socket.room,
+        user: socket.id,
+        name: socket.name,
+        rol: socket.roluser
+      }
+      )
+    };
 
     // Broadcast when a user connects
     socket.broadcast
@@ -82,7 +116,19 @@ io.on("connection", (socket) => {
   //con este evento se tienen que manejar los pagos
   socket.on("pay", (pay) => {
     io.on(socket.room).emit("pay", pay);
-  })  
+  })
+
+  //Giros
+  socket.on("GirarDinero", ({user, money}) => {
+    try {
+    console.log(user, money);  
+    io.to(user).emit("GirarDinero", money);
+
+    } catch (error) {
+      console.log(error);  
+    }
+    
+  });
 
   // Listen for chatMessage
   socket.on("chatMessage", (msg) => {

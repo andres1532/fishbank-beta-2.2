@@ -13,12 +13,15 @@ import Clock from "../../../assets/imagenes/clock.svg";
 import Money from "../../../assets/imagenes/money.svg";
 
 export default function App() {
-  const dd = localStorage.getItem("userdata");
-  const ff = JSON.parse(dd);
+  const Localstorage = localStorage.getItem("userdata");
+  const object = JSON.parse(Localstorage);
+  const [money, setMoney] = useState(0);
+  const [mecanico, setMecanicos] = useState(0);
+  const [giro, setGiro] = useState(0);
   let state = {
     socket: null,
   };
-  const [money, setMoney] = useState(300);
+
   useEffect(() => {
     const logs = () => {
       let totalSeconds = 0;
@@ -73,9 +76,9 @@ export default function App() {
       });
 
       state.socket.emit("joinRoom", {
-        username: ff.username,
-        room: ff.team,
-        rol: "admin",
+        username: object.username,
+        room: object.team,
+        rol: "Gerente",
       });
       state.socket.on("roomUsers", ({ room, users }) => {
         outputRoomName(room);
@@ -88,6 +91,19 @@ export default function App() {
         // Scroll down
         chatMessages.scrollTop = chatMessages.scrollHeight;
       });
+
+      //Agregamos mecanicos
+      state.socket.on("mechanic", (mechanic) => {
+        console.log(mechanic);
+        setMecanicos(mechanic);
+      });
+
+      //Autogiro
+      state.socket.on("autoGiro", (autoGiro) => {
+        console.log(autoGiro);
+        setMoney(autoGiro);
+      });
+
     };
     logs();
 
@@ -126,40 +142,48 @@ export default function App() {
     e.target.elements.msg.value = "";
     e.target.elements.msg.focus();
   };
+
+  const handelMoney = () => {
+    state.socket.emit("GirarDinero", {
+      user: mecanico.user,
+      money: parseInt(giro)
+    });
+  }
+
   return (
     <div>
-      <header className="encabezado">
-        <img className="uao-2" src={UAO2} alt="" />
-        <img className="usericon" src={User} alt="" />
 
-        <a className="sesionIcon" href="/">
-          {" "}
-          <img src={LogOut} alt="" />
-        </a>
-      </header>
+      <div>
+        <title>Gerente</title>
+      </div>
 
-      <div className="icono">
-        <div className="sub-icono">
-          <div className="wrapflex-tempo">
-            <div className="timeIcon">
-              <img className="time" src={Clock} alt="" />
-            </div>
+      <div className="o-Navbar">
+        <ul className="o-NavbarElements">
+          <li className="o-title"><h1>UAO</h1></li>
+          <li className="Indicador">
+            <div><label>$ <span id="Dinero">{money}</span></label></div>
+            <p>Dinero Actual</p>
+          </li>
+          <li className="Indicador">
             <div className="tiempo">
               <label id="minutes">00</label>
               <label id="colon">:</label>
               <label id="seconds">00</label>
+              <p>Tiempo</p>
             </div>
+          </li>
+          <li className="o-NameAndPosition">{object.username}<br />Gerente</li>
+          <div className="o-UserMenu">
+            <li className="o-UserImage"><a><img src={User} alt="imgUser" /></a>
+              <div className="o-UserContent">
+                <a>Cerrar sesion</a>
+              </div>
+            </li>
           </div>
-          <div className="wrapflex-dinero">
-            <div className="moneyIcon">
-              <img className="money" src={Money} alt="" />
-            </div>
-            <div>
-              <label id="dinero">$500</label>
-            </div>
-          </div>
-        </div>
+        </ul>
+
       </div>
+
       <div className="chat-container" style={{ float: "right" }}>
         <header className="chat-header">
           <a href="index.html" className="btn-salir">
@@ -210,9 +234,12 @@ export default function App() {
               placeholder="Envia un valor"
               required
               autocomplete="off"
+              onChange = {e => {setGiro(e.target.value)}
+              
+              }
             />
 
-            <button className="btn">
+            <button className="btn" onClick={handelMoney}>
               <i className="fas fa-paper-plane"></i> Envia un valor
             </button>
           </form>

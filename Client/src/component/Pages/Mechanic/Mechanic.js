@@ -116,7 +116,7 @@ export default function App() {
     state.socket.emit("joinRoom", {
       username: object.username,
       room: object.team,
-      rol: "admin",
+      rol: "Mecanico"
     });
     state.socket.on("roomUsers", ({ room, users }) => {
       outputRoomName(room);
@@ -129,6 +129,13 @@ export default function App() {
       // Scroll down
       chatMessages.scrollTop = chatMessages.scrollHeight;
     });
+
+    //recibimos el giro
+    state.socket.on("GirarDinero", (money) =>{
+      console.log(money);
+      setMoney(prevmoney => prevmoney + money);
+    })
+
     };
     logs();
   // Get room and users
@@ -170,7 +177,7 @@ const chatF = (e) => {
 };
 
   return (
-    <div>
+    <div className="o-GeneralContainer">
       <div>
         <title>Mecanico</title>
         <link rel="stylesheet" href="/public/css/CSSMecanico.css" type="text/css" />
@@ -206,24 +213,44 @@ const chatF = (e) => {
         <div className="o-TopContainer">
           <div className="Opciones">
             <img src={Ship} alt="imgShip"/>
-            <button className="BtnComprarBarco" value="Nivel1">Comprar Barco Nivel1</button>
+            <div className="o-ShipInfo">
+              <p>Nivel: 1</p>
+              <p>Capacidad: 100 toneladas</p>  
+              <p>Valor: $100</p>          
+            </div>
+            <button className="BtnComprarBarco" value="Nivel1">Comprar barco nivel 1</button>
           </div>
 
           <div className="Opciones">
             <img src={Ship} alt="imgShip"/>
-            <button className="BtnComprarBarco" value="Nivel2">Comprar Barco Nivel2</button>
+            <div className="o-ShipInfo">
+              <p>Nivel: 2</p>
+              <p>Capacidad: 200 toneladas</p>  
+              <p>Valor: $200</p>          
+            </div>
+            <button className="BtnComprarBarco" value="Nivel2">Comprar barco nivel 2</button>
           </div>
         </div>
 
         <div className="o-BottomContainer">
           <div className="Opciones">
             <img src={Ship} alt="imgShip"/>
-            <button className="BtnComprarBarco" value="Nivel3">Comprar Barco Nivel3</button>
+            <div className="o-ShipInfo">
+              <p>Nivel: 3</p>
+              <p>Capacidad: 300 toneladas</p>  
+              <p>Valor: $300</p>          
+            </div>
+            <button className="BtnComprarBarco" value="Nivel3">Comprar barco nivel 3</button>
           </div>
 
           <div className="Opciones">
             <img src={Ship} alt="imgShip"/>
-            <button className="BtnComprarBarco" value="Nivel4">Comprar Barco Nivel4</button>
+            <div className="o-ShipInfo">
+              <p>Nivel: 4</p>
+              <p>Capacidad: 400 toneladas</p>  
+              <p>Valor: $400</p>          
+            </div>
+            <button className="BtnComprarBarco" value="Nivel4">Comprar barco nivel 4</button>
           </div>
         </div>
 

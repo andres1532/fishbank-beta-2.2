@@ -2,6 +2,11 @@ body{
     background-color: #272727;
 }
 
+.o-GeneralContainer{
+    display: flex;
+    flex-direction: row;
+}
+
 /*inicio navbar*/
 .o-Navbar{
 	width: 100%;
@@ -118,11 +123,11 @@ body{
     display: inline-block;
 }
 
-.o-OptionsHover{
+/*.o-OptionsHover{
     display: none;
     position: absolute;
     background-color: white;
-}
+}*/
 
 
 .o-TopContainer{
@@ -142,6 +147,11 @@ body{
     height: 60%;
 }
 
+.o-ShipInfo p{
+    color: rgb(252, 252, 252);
+    font-size: 0.8rem;
+}
+
 .o-BottomContainer{
     display: flex;
     align-items: center;
@@ -151,15 +161,14 @@ body{
 .BtnComprarBarco{
     background-color:#008db8;
     cursor: pointer;
-    width: 35%;
+    width: 50%;
     height: 15%;
 }
 
  .o-BottomContainer .Opciones:hover{
-    background-color:#7ed7f1;
+    background-color:#06468f;
     cursor: pointer;
-    width: 35%;
-    height: 15%;
+
 }
 
 /*fin menu de barcos*/
