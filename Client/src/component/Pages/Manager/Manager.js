@@ -163,6 +163,8 @@ export default function App(props) {
     state.valor = value;
   };
 
+  //listo para merge
+
   return (
     <div>
       <div>
@@ -196,7 +198,6 @@ export default function App(props) {
         </ul>
 
       </div>
-
 
 
 
