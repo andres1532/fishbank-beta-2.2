@@ -86,7 +86,7 @@ io.on("connection", (socket) => {
          name: socket.name,
         rol: socket.roluser}
               )};
->>>>>>> 63e1091cfc23daedf9094d3a482990aac57ae8ecn
+
 
     // Broadcast when a user connects
     socket.broadcast

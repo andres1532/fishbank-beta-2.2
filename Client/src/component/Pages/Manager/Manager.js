@@ -14,14 +14,7 @@ import LogOut from "../../../assets/imagenes/Cerrar sesión.svg";
 import Clock from "../../../assets/imagenes/clock.svg";
 import Money from "../../../assets/imagenes/money.svg";
 
-<<<<<<< HEAD
-export default function App() {
-  const Localstorage = localStorage.getItem("userdata");
-  const object = JSON.parse(Localstorage);
-  const [money, setMoney] = useState(0);
-  const [mecanico, setMecanicos] = useState(0);
-  const [giro, setGiro] = useState(0);
-=======
+
 //cambiar dd por Localstorage
 //cambiar ff por object
 
@@ -33,15 +26,11 @@ export default function App(props) {
   const [money, setMoney] = useState(0);
   const [giro, setGiro] = useState(0);
 
->>>>>>> 63e1091cfc23daedf9094d3a482990aac57ae8ec
   let state = {
     socket: null,
   };
 
-<<<<<<< HEAD
-=======
-  
->>>>>>> 63e1091cfc23daedf9094d3a482990aac57ae8ec
+
   useEffect(() => {
     const logs = () => {
       let totalSeconds = 0;
@@ -113,20 +102,7 @@ export default function App(props) {
         chatMessages.scrollTop = chatMessages.scrollHeight;
       });
 
-<<<<<<< HEAD
-      //Agregamos mecanicos
-      state.socket.on("mechanic", (mechanic) => {
-        console.log(mechanic);
-        setMecanicos(mechanic);
-      });
 
-      //Autogiro
-      state.socket.on("autoGiro", (autoGiro) => {
-        console.log(autoGiro);
-        setMoney(autoGiro);
-      });
-
-=======
       state.socket.on("mechanic", (mechanic) => {
         console.log(mechanic);
         setMecanicos(mechanic);
@@ -139,7 +115,6 @@ export default function App(props) {
 
 
       
->>>>>>> 63e1091cfc23daedf9094d3a482990aac57ae8ec
     };
     logs();
 
@@ -179,20 +154,7 @@ export default function App(props) {
     e.target.elements.msg.focus();
   };
 
-<<<<<<< HEAD
-  const handelMoney = () => {
-    state.socket.emit("GirarDinero", {
-      user: mecanico.user,
-      money: parseInt(giro)
-    });
-  }
 
-  return (
-    <div>
-
-      <div>
-        <title>Gerente</title>
-=======
   const handleMoney = () => {
     state.socket.emit("GirarDinero", {user: mecanico.user, money: parseInt(giro)}) 
   };
@@ -202,7 +164,7 @@ export default function App(props) {
       <div>
         <title>Gerente</title>
 
->>>>>>> 63e1091cfc23daedf9094d3a482990aac57ae8ec
+
       </div>
 
       <div className="o-Navbar">
@@ -232,12 +194,6 @@ export default function App(props) {
 
       </div>
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 63e1091cfc23daedf9094d3a482990aac57ae8ec
       <div className="chat-container" style={{ float: "right" }}>
         <header className="chat-header">
         <button onClick={() => props.history.push('/Login')}>
@@ -286,22 +242,12 @@ export default function App(props) {
               id="cantidad2"
               type="number"
               placeholder="Envia un valor"
-<<<<<<< HEAD
-              required
-              autocomplete="off"
-              onChange = {e => {setGiro(e.target.value)}
-              
-              }
-            />
 
-            <button className="btn" onClick={handelMoney}>
-=======
               autoComplete="off"
              defaultValue={0}
               onChange={e => {setGiro(e.target.value)}}
             />
             <button className="btn" onClick={handleMoney}>
->>>>>>> 63e1091cfc23daedf9094d3a482990aac57ae8ec
               <i className="fas fa-paper-plane"></i> Envia un valor
             </button>
           </form>

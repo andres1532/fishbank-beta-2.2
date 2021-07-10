@@ -130,44 +130,12 @@ export default function App(props) {
         // Scroll down
         chatMessages.scrollTop = chatMessages.scrollHeight;
       });
-<<<<<<< HEAD
-    };
-    const outputRoomName = (room) => {
-      roomName.innerText = room;
-    };
-    state.socket = io("http://localhost:3030/", {
-      reconnectionDelayMax: 10000,
-    });
 
-    state.socket.emit("joinRoom", {
-      username: object.username,
-      room: object.team,
-      rol: "Mecanico"
-    });
-    state.socket.on("roomUsers", ({ room, users }) => {
-      outputRoomName(room);
-      outputUsers(users);
-    });
-    state.socket.on("message", (message) => {
-      console.log(message);
-      outputMessage(message);
-
-      // Scroll down
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    });
-
-    //recibimos el giro
-    state.socket.on("GirarDinero", (money) =>{
-      console.log(money);
-      setMoney(prevmoney => prevmoney + money);
-    })
-=======
 
       state.socket.on("GirarDinero", (money) => {
         console.log(money);
         setMoney(prevmoney => prevmoney + money);
       });
->>>>>>> 63e1091cfc23daedf9094d3a482990aac57ae8ec
 
     };
     logs();
@@ -245,57 +213,20 @@ export default function App(props) {
       <div className="ContenedorBotones o-ContenedorBotonesHover">
         <div className="o-TopContainer">
           <div className="Opciones">
-<<<<<<< HEAD
-            <img src={Ship} alt="imgShip"/>
-            <div className="o-ShipInfo">
-              <p>Nivel: 1</p>
-              <p>Capacidad: 100 toneladas</p>  
-              <p>Valor: $100</p>          
-            </div>
-            <button className="BtnComprarBarco" value="Nivel1">Comprar barco nivel 1</button>
-          </div>
 
-          <div className="Opciones">
-            <img src={Ship} alt="imgShip"/>
-            <div className="o-ShipInfo">
-              <p>Nivel: 2</p>
-              <p>Capacidad: 200 toneladas</p>  
-              <p>Valor: $200</p>          
-            </div>
-            <button className="BtnComprarBarco" value="Nivel2">Comprar barco nivel 2</button>
-=======
-            <img src={Ship} alt="imgShip" />
+     <img src={Ship} alt="imgShip" />
             <button className="BtnComprarBarco" value="Nivel1">Comprar Barco Nivel1</button>
           </div>
 
           <div className="Opciones">
             <img src={Ship} alt="imgShip" />
             <button className="BtnComprarBarco" value="Nivel2">Comprar Barco Nivel2</button>
->>>>>>> 63e1091cfc23daedf9094d3a482990aac57ae8ec
+
           </div>
         </div>
 
         <div className="o-BottomContainer">
           <div className="Opciones">
-<<<<<<< HEAD
-            <img src={Ship} alt="imgShip"/>
-            <div className="o-ShipInfo">
-              <p>Nivel: 3</p>
-              <p>Capacidad: 300 toneladas</p>  
-              <p>Valor: $300</p>          
-            </div>
-            <button className="BtnComprarBarco" value="Nivel3">Comprar barco nivel 3</button>
-          </div>
-
-          <div className="Opciones">
-            <img src={Ship} alt="imgShip"/>
-            <div className="o-ShipInfo">
-              <p>Nivel: 4</p>
-              <p>Capacidad: 400 toneladas</p>  
-              <p>Valor: $400</p>          
-            </div>
-            <button className="BtnComprarBarco" value="Nivel4">Comprar barco nivel 4</button>
-=======
             <img src={Ship} alt="imgShip" />
             <button className="BtnComprarBarco" value="Nivel3">Comprar Barco Nivel3</button>
           </div>
@@ -303,7 +234,7 @@ export default function App(props) {
           <div className="Opciones">
             <img src={Ship} alt="imgShip" />
             <button className="BtnComprarBarco" value="Nivel4">Comprar Barco Nivel4</button>
->>>>>>> 63e1091cfc23daedf9094d3a482990aac57ae8ec
+
           </div>
         </div>
 
