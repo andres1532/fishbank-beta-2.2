@@ -56,10 +56,12 @@ io.on("connection", (socket) => {
 
     socket.join(user.room);
 
+    
 
 
     // Welcome current user
     /*socket.emit(
+<<<<<<< HEAD
       "message",
       formatMessage(botName, `bienvenido al chat! ${user.username}`)
     );*/
@@ -97,6 +99,37 @@ io.on("connection", (socket) => {
       }
       )
     };
+=======
+      "welcomeMessage",
+      formatMessage(botName, `bienvenido al chat! ${user.username}`),
+      console.log("welcome message")
+    );*/
+
+    //entró un manager
+    if(socket.roluser === "Gerente"){
+      console.log("entró un gerente");
+      io.to(socket.room).emit(
+        "manager",
+        {room: socket.room,
+         user: socket.id,
+        name: socket.name,
+        rol: socket.roluser}
+              )
+            io.to(socket.id).emit("autoGiro", 500)
+            console.log("autogiro")
+            };
+    
+    //entró un mecanico
+    if(socket.roluser === "Mecanico"){
+      console.log("entró un Mecanico");
+      io.to(socket.room).emit(
+        "mechanic",
+        {room: socket.room,
+          user: socket.id,
+         name: socket.name,
+        rol: socket.roluser}
+              )};
+>>>>>>> 63e1091cfc23daedf9094d3a482990aac57ae8ecn
 
     // Broadcast when a user connects
     socket.broadcast
@@ -129,6 +162,17 @@ io.on("connection", (socket) => {
     }
     
   });
+
+  socket.on("GirarDinero", ({user, money}) => {
+    try {
+    console.log(user, money);  
+    io.to(user).emit("GirarDinero", money);
+
+    } catch (error) {
+      console.log(error);  
+    }
+    
+  })  
 
   // Listen for chatMessage
   socket.on("chatMessage", (msg) => {
