@@ -226,24 +226,24 @@ export default function App(props) {
         <div className="o-TopContainer">
           <div className="Opciones">
             <img src={Ship} alt="imgShip" />
-            <button className="BtnComprarBarco" value="Nivel1" onClick={() => {restarMoney(100)}}>Comprar Barco Nivel1 $100</button>
+            <button className="BtnComprarBarco" value="Nivel1" onClick={() => {if(money > 99) restarMoney(100)  } }>Comprar Barco Nivel1 $100</button>
           </div>
 
           <div className="Opciones">
             <img src={Ship} alt="imgShip" />
-            <button className="BtnComprarBarco" value="Nivel2" onClick={() => {restarMoney(200)}}>Comprar Barco Nivel2 $200</button>
+            <button className="BtnComprarBarco" value="Nivel2" onClick={() => {if(money > 199) restarMoney(200)}}>Comprar Barco Nivel2 $200</button>
           </div>
         </div>
 
         <div className="o-BottomContainer">
           <div className="Opciones">
             <img src={Ship} alt="imgShip" />
-            <button className="BtnComprarBarco" value="Nivel3" onClick={() => {restarMoney(300)}}>Comprar Barco Nivel3 $300</button>
+            <button className="BtnComprarBarco" value="Nivel3" onClick={() => {if(money > 299) restarMoney(300)}}>Comprar Barco Nivel3 $300</button>
           </div>
 
           <div className="Opciones">
             <img src={Ship} alt="imgShip" />
-            <button className="BtnComprarBarco" value="Nivel4" onClick={() => {restarMoney(400)}}>Comprar Barco Nivel4 $400</button>
+            <button className="BtnComprarBarco" value="Nivel4" onClick={() => {if(money > 399) restarMoney(400)}}>Comprar Barco Nivel4 $400</button>
           </div>
         </div>
 
