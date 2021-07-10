@@ -59,51 +59,8 @@ io.on("connection", (socket) => {
     
 
 
-    // Welcome current user
-    /*socket.emit(
-<<<<<<< HEAD
-      "message",
-      formatMessage(botName, `bienvenido al chat! ${user.username}`)
-    );*/
 
-    //entro un Gerente
-    if (socket.roluser === "Gerente") {
-      console.log("Entro un Gerente");
-      io.to(socket.room).emit(
-        "manager", {
-        room: socket.room,
-        user: socket.id,
-        name: socket.name,
-        rol: socket.roluser
-      }
-      )
-
-      //Autogiro
-      io.to(socket.id).emit(
-        "autoGiro", 500
-      )
-
-      console.log("autoGiro");
-
-    };
-
-    //entro un Mecanico
-    if (socket.roluser === "Mecanico") {
-      console.log("Entro un Mecanico");
-      io.to(socket.room).emit(
-        "manager", {
-        room: socket.room,
-        user: socket.id,
-        name: socket.name,
-        rol: socket.roluser
-      }
-      )
-    };
-=======
-      "welcomeMessage",
-      formatMessage(botName, `bienvenido al chat! ${user.username}`),
-      console.log("welcome message")
-    );*/
+    
 
     //entró un manager
     if(socket.roluser === "Gerente"){
