@@ -8,11 +8,9 @@ import "./tabla.css";
 import "./chat.css";
 
 //imgs
-import UAO2 from "../../../assets/imagenes/UAO2.svg";
+
 import User from "../../../assets/imagenes/user.svg";
-import LogOut from "../../../assets/imagenes/Cerrar sesión.svg";
-import Clock from "../../../assets/imagenes/clock.svg";
-import Money from "../../../assets/imagenes/money.svg";
+
 
 //cambiar dd por Localstorage
 //cambiar ff por object
@@ -24,9 +22,12 @@ export default function App(props) {
   const [mecanico, setMecanicos ] = useState({});
   const [money, setMoney] = useState(0);
   const [giro, setGiro] = useState(0);
+ 
+  
 
   let state = {
     socket: null,
+    valor: 0
   };
 
   
@@ -152,8 +153,14 @@ export default function App(props) {
     e.target.elements.msg.focus();
   };
 
+ 
   const handleMoney = () => {
+    setGiro(state.valor);
     state.socket.emit("GirarDinero", {user: mecanico.user, money: parseInt(giro)}) 
+  };
+
+  const valor = (value) => {
+    state.valor = value;
   };
 
   return (
@@ -195,7 +202,7 @@ export default function App(props) {
 
       <div className="chat-container" style={{ float: "right" }}>
         <header className="chat-header">
-        <button onClick={() => props.history.push('/Login')}>
+        <button onClick={() => props.history.push('/')}>
             Leave Room
           </button>
         </header>
@@ -243,7 +250,7 @@ export default function App(props) {
               placeholder="Envia un valor"
               autoComplete="off"
              defaultValue={0}
-              onChange={e => {setGiro(e.target.value)}}
+              onChange={e => {valor(e.target.value)}}
             />
             <button className="btn" onClick={handleMoney}>
               <i className="fas fa-paper-plane"></i> Envia un valor

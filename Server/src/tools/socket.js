@@ -120,7 +120,17 @@ io.on("connection", (socket) => {
       console.log(error);  
     }
     
-  })  
+  }) 
+  
+  socket.on("RestarDinero", ({user, money}) => {
+    try{
+      console.log(user, money);
+      io.to(user).emit("RestarDinero", money);
+    }
+    catch (error){
+      console.log(error);
+    }
+  })
 
   // Listen for chatMessage
   socket.on("chatMessage", (msg) => {

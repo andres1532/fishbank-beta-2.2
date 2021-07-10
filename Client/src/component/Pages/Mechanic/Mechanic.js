@@ -6,16 +6,16 @@ import "./style.css";
 import "./chat.css";
 
 //imgs
-import UAO2 from "../../../assets/imagenes/UAO2.svg";
+
 import User from "../../../assets/imagenes/user.svg";
 //import LogOut from "../../../assets/imagenes/Cerrar sesión.svg";
-import Clock from "../../../assets/imagenes/clock.svg";
-import Money from "../../../assets/imagenes/money.svg";
+
 import Ship from "../../../assets/imagenes/barco.svg";
 
 export default function App(props) {
   const Localstorage = localStorage.getItem("userdata");
   const object = JSON.parse(Localstorage);
+  
 
   const [ship1, setShip1] = useState([{ level: 1, price: 100, gas: 100, capacity: 100 }, { level: 1, price: 100, gas: 100, capacity: 100 }, { level: 1, price: 100, capacity: 100 }]);
   const [ship2, setShip2] = useState([]);
@@ -131,10 +131,17 @@ export default function App(props) {
         chatMessages.scrollTop = chatMessages.scrollHeight;
       });
 
+      //aqui se realiza la suma del dinero que se recibe con el dinero actual
       state.socket.on("GirarDinero", (money) => {
         console.log(money);
         setMoney(prevmoney => prevmoney + money);
       });
+
+      state.socket.on("RestarDinero", (money) => {
+        console.log(money);
+        setMoney(prevmoney => prevmoney - money);
+      })
+      
 
     };
     logs();
@@ -176,6 +183,12 @@ export default function App(props) {
     e.target.elements.msg.focus();
   };
 
+
+  const restarMoney = (value) => {
+  //  state.socket.emit("RestarDinero", {user: "mecanico", money: parseInt(100)}) 
+  setMoney(prevmoney => money - value);
+  };
+
   return (
     <div>
       <div>
@@ -213,24 +226,24 @@ export default function App(props) {
         <div className="o-TopContainer">
           <div className="Opciones">
             <img src={Ship} alt="imgShip" />
-            <button className="BtnComprarBarco" value="Nivel1">Comprar Barco Nivel1</button>
+            <button className="BtnComprarBarco" value="Nivel1" onClick={() => {restarMoney(100)}}>Comprar Barco Nivel1 $100</button>
           </div>
 
           <div className="Opciones">
             <img src={Ship} alt="imgShip" />
-            <button className="BtnComprarBarco" value="Nivel2">Comprar Barco Nivel2</button>
+            <button className="BtnComprarBarco" value="Nivel2" onClick={() => {restarMoney(200)}}>Comprar Barco Nivel2 $200</button>
           </div>
         </div>
 
         <div className="o-BottomContainer">
           <div className="Opciones">
             <img src={Ship} alt="imgShip" />
-            <button className="BtnComprarBarco" value="Nivel3">Comprar Barco Nivel3</button>
+            <button className="BtnComprarBarco" value="Nivel3" onClick={() => {restarMoney(300)}}>Comprar Barco Nivel3 $300</button>
           </div>
 
           <div className="Opciones">
             <img src={Ship} alt="imgShip" />
-            <button className="BtnComprarBarco" value="Nivel4">Comprar Barco Nivel4</button>
+            <button className="BtnComprarBarco" value="Nivel4" onClick={() => {restarMoney(400)}}>Comprar Barco Nivel4 $400</button>
           </div>
         </div>
 
@@ -240,7 +253,7 @@ export default function App(props) {
 
       <div className="chat-container" style={{ float: "right" }}>
         <header className="chat-header">
-          <button onClick={() => props.history.push('/Login')}>
+          <button onClick={() => props.history.push('/')}>
             Leave Room
           </button>
 
