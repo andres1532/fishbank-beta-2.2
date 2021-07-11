@@ -155,12 +155,14 @@ export default function App(props) {
 
  
   const handleMoney = () => {
-    setGiro(state.valor);
+    //setGiro(state.valor);
+    console.log(giro);
     state.socket.emit("GirarDinero", {user: mecanico.user, money: parseInt(giro)}) 
   };
 
   const valor = (value) => {
-    state.valor = value;
+    //state.valor = value;
+    setGiro(value);
   };
 
   //listo para merge
