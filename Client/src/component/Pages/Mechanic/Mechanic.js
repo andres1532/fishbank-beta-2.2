@@ -130,6 +130,11 @@ export default function App(props) {
         // Scroll down
         chatMessages.scrollTop = chatMessages.scrollHeight;
       });
+      //socket.on y emit, para traer info del gerente y el emit para solicitar la info del gerente
+      state.socket.on("memberConnection",(data)=>{
+        debugger;
+        //gerente conectado
+      })
 
       //aqui se realiza la suma del dinero que se recibe con el dinero actual
       state.socket.on("GirarDinero", (money) => {
